@@ -6,7 +6,7 @@ python:
 install:
   - pip install -e . --use-mirrors
 before_script:
-  - mkdir -p shippable/codecoverage shippable/testresults
+  
   - pip install -U -r test_requirements.txt --use-mirrors
   - git clone https://github.com/z4r/python-coveralls-example.git
   - cd python-coveralls-example
@@ -14,6 +14,6 @@ before_script:
   - py.test example/tests.py --cov=example
   - cd -
 script:
-  - py.test coveralls/tests.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing --cov-report xml --cov openpyxl --junit-xml=shippable/testresults/results.xml
+  - py.test coveralls/tests.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing nit-xml=shippable/testresults/results.xml
 after_success:
   - coveralls
