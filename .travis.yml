@@ -13,6 +13,6 @@ before_script:
   - py.test example/tests.py --cov=example
   - cd -
 script:
-  - py.test coveralls/tests.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing
+  - py.test coveralls/tests.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing --cov-report xml --cov openpyxl --junit-xml=shippable/testresults/results.xml
 after_success:
   - coveralls
